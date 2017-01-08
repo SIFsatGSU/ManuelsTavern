@@ -1,0 +1,607 @@
+fileFormatVersion: 2
+guid: 80146b55ba2d96d42848116d4dbbc954
+timeCreated: 1483695938
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Cylinder
+    100004: Cylinder_001
+    100006: Plane
+    100008: Plane_001
+    100010: BezierCurve
+    100012: Empty
+    100014: Empty_001
+    100016: Page_1
+    100018: Armature
+    100020: Bone
+    100022: Bone_001
+    100024: Bone_002
+    100026: Bone_003
+    100028: Bone_004
+    100030: Bone_005
+    100032: Bone_006
+    100034: Bone_007
+    100036: Bone_008
+    100038: A_Page_1
+    100040: A_Page_2
+    100042: Bone_0
+    100044: Bone_2
+    100046: Bone_3
+    100048: Bone_4
+    100050: Bone_5
+    100052: Bone_6
+    100054: Bone_7
+    100056: Bone_8
+    100058: Bone_9
+    100060: Page_2
+    100062: A_Page_3
+    100064: Bone_1
+    100066: Bone_10
+    100068: Bone_11
+    100070: Bone_12
+    100072: Bone_13
+    100074: Bone_14
+    100076: Bone_15
+    100078: Bone_16
+    100080: Bone_17
+    100082: Page_3
+    400000: //RootNode
+    400002: Cylinder
+    400004: Cylinder_001
+    400006: Plane
+    400008: Plane_001
+    400010: BezierCurve
+    400012: Empty
+    400014: Empty_001
+    400016: Page_1
+    400018: Armature
+    400020: Bone
+    400022: Bone_001
+    400024: Bone_002
+    400026: Bone_003
+    400028: Bone_004
+    400030: Bone_005
+    400032: Bone_006
+    400034: Bone_007
+    400036: Bone_008
+    400038: A_Page_1
+    400040: A_Page_2
+    400042: Bone_0
+    400044: Bone_2
+    400046: Bone_3
+    400048: Bone_4
+    400050: Bone_5
+    400052: Bone_6
+    400054: Bone_7
+    400056: Bone_8
+    400058: Bone_9
+    400060: Page_2
+    400062: A_Page_3
+    400064: Bone_1
+    400066: Bone_10
+    400068: Bone_11
+    400070: Bone_12
+    400072: Bone_13
+    400074: Bone_14
+    400076: Bone_15
+    400078: Bone_16
+    400080: Bone_17
+    400082: Page_3
+    2300000: Cylinder
+    2300002: Cylinder_001
+    2300004: Plane
+    2300006: Plane_001
+    2300008: BezierCurve
+    2300010: Page_1
+    3300000: Cylinder
+    3300002: Cylinder_001
+    3300004: Plane
+    3300006: Plane_001
+    3300008: BezierCurve
+    3300010: Page_1
+    4300000: Cylinder_001
+    4300002: Cylinder
+    4300004: Plane_001
+    4300006: Plane
+    4300008: BezierCurve
+    4300010: Page_1
+    4300012: Page_2
+    4300014: Page_3
+    7400000: Page 1 flip reversed
+    7400002: ArmatureAction
+    7400004: ArmatureAction_001
+    7400006: ArmatureAction_002
+    7400008: ArmatureAction_003
+    7400010: Page 1 flip
+    7400012: Page 2 flip
+    7400014: Page 2 flip reversed
+    9500000: //RootNode
+    13700000: Page_1
+    13700002: Page_2
+    13700004: Page_3
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Page 1 flip
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 52
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: A_Page_1
+        weight: 1
+      - path: A_Page_1/Bone_1
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11/Bone_12
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11/Bone_12/Bone_13
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11/Bone_12/Bone_13/Bone_14
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11/Bone_12/Bone_13/Bone_14/Bone_15
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11/Bone_12/Bone_13/Bone_14/Bone_15/Bone_16
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11/Bone_12/Bone_13/Bone_14/Bone_15/Bone_16/Bone_17
+        weight: 1
+      - path: A_Page_2
+        weight: 1
+      - path: A_Page_2/Bone_0
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3/Bone_4
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3/Bone_4/Bone_5
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3/Bone_4/Bone_5/Bone_6
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3/Bone_4/Bone_5/Bone_6/Bone_7
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3/Bone_4/Bone_5/Bone_6/Bone_7/Bone_8
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3/Bone_4/Bone_5/Bone_6/Bone_7/Bone_8/Bone_9
+        weight: 1
+      - path: A_Page_3
+        weight: 1
+      - path: A_Page_3/Bone
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002/Bone_003
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002/Bone_003/Bone_004
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002/Bone_003/Bone_004/Bone_005
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002/Bone_003/Bone_004/Bone_005/Bone_006
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002/Bone_003/Bone_004/Bone_005/Bone_006/Bone_007
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002/Bone_003/Bone_004/Bone_005/Bone_006/Bone_007/Bone_008
+        weight: 1
+      - path: Cylinder
+        weight: 1
+      - path: Cylinder_001
+        weight: 1
+      - path: Page_1
+        weight: 1
+      - path: Page_2
+        weight: 1
+      - path: Page_3
+        weight: 1
+      - path: Plane
+        weight: 1
+      - path: Plane_001
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Page 2 flip
+      takeName: Default Take
+      firstFrame: 57
+      lastFrame: 119
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: A_Page_1
+        weight: 1
+      - path: A_Page_1/Bone_1
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11/Bone_12
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11/Bone_12/Bone_13
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11/Bone_12/Bone_13/Bone_14
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11/Bone_12/Bone_13/Bone_14/Bone_15
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11/Bone_12/Bone_13/Bone_14/Bone_15/Bone_16
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11/Bone_12/Bone_13/Bone_14/Bone_15/Bone_16/Bone_17
+        weight: 1
+      - path: A_Page_2
+        weight: 1
+      - path: A_Page_2/Bone_0
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3/Bone_4
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3/Bone_4/Bone_5
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3/Bone_4/Bone_5/Bone_6
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3/Bone_4/Bone_5/Bone_6/Bone_7
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3/Bone_4/Bone_5/Bone_6/Bone_7/Bone_8
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3/Bone_4/Bone_5/Bone_6/Bone_7/Bone_8/Bone_9
+        weight: 1
+      - path: A_Page_3
+        weight: 1
+      - path: A_Page_3/Bone
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002/Bone_003
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002/Bone_003/Bone_004
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002/Bone_003/Bone_004/Bone_005
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002/Bone_003/Bone_004/Bone_005/Bone_006
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002/Bone_003/Bone_004/Bone_005/Bone_006/Bone_007
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002/Bone_003/Bone_004/Bone_005/Bone_006/Bone_007/Bone_008
+        weight: 1
+      - path: Cylinder
+        weight: 1
+      - path: Cylinder_001
+        weight: 1
+      - path: Page_1
+        weight: 1
+      - path: Page_2
+        weight: 1
+      - path: Page_3
+        weight: 1
+      - path: Plane
+        weight: 1
+      - path: Plane_001
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Page 1 flip reversed
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 52
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: A_Page_1
+        weight: 1
+      - path: A_Page_1/Bone_1
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11/Bone_12
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11/Bone_12/Bone_13
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11/Bone_12/Bone_13/Bone_14
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11/Bone_12/Bone_13/Bone_14/Bone_15
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11/Bone_12/Bone_13/Bone_14/Bone_15/Bone_16
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11/Bone_12/Bone_13/Bone_14/Bone_15/Bone_16/Bone_17
+        weight: 1
+      - path: A_Page_2
+        weight: 1
+      - path: A_Page_2/Bone_0
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3/Bone_4
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3/Bone_4/Bone_5
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3/Bone_4/Bone_5/Bone_6
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3/Bone_4/Bone_5/Bone_6/Bone_7
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3/Bone_4/Bone_5/Bone_6/Bone_7/Bone_8
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3/Bone_4/Bone_5/Bone_6/Bone_7/Bone_8/Bone_9
+        weight: 1
+      - path: A_Page_3
+        weight: 1
+      - path: A_Page_3/Bone
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002/Bone_003
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002/Bone_003/Bone_004
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002/Bone_003/Bone_004/Bone_005
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002/Bone_003/Bone_004/Bone_005/Bone_006
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002/Bone_003/Bone_004/Bone_005/Bone_006/Bone_007
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002/Bone_003/Bone_004/Bone_005/Bone_006/Bone_007/Bone_008
+        weight: 1
+      - path: Cylinder
+        weight: 1
+      - path: Cylinder_001
+        weight: 1
+      - path: Page_1
+        weight: 1
+      - path: Page_2
+        weight: 1
+      - path: Page_3
+        weight: 1
+      - path: Plane
+        weight: 1
+      - path: Plane_001
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Page 2 flip reversed
+      takeName: Default Take
+      firstFrame: 57
+      lastFrame: 119
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: A_Page_1
+        weight: 1
+      - path: A_Page_1/Bone_1
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11/Bone_12
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11/Bone_12/Bone_13
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11/Bone_12/Bone_13/Bone_14
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11/Bone_12/Bone_13/Bone_14/Bone_15
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11/Bone_12/Bone_13/Bone_14/Bone_15/Bone_16
+        weight: 1
+      - path: A_Page_1/Bone_1/Bone_10/Bone_11/Bone_12/Bone_13/Bone_14/Bone_15/Bone_16/Bone_17
+        weight: 1
+      - path: A_Page_2
+        weight: 1
+      - path: A_Page_2/Bone_0
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3/Bone_4
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3/Bone_4/Bone_5
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3/Bone_4/Bone_5/Bone_6
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3/Bone_4/Bone_5/Bone_6/Bone_7
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3/Bone_4/Bone_5/Bone_6/Bone_7/Bone_8
+        weight: 1
+      - path: A_Page_2/Bone_0/Bone_2/Bone_3/Bone_4/Bone_5/Bone_6/Bone_7/Bone_8/Bone_9
+        weight: 1
+      - path: A_Page_3
+        weight: 1
+      - path: A_Page_3/Bone
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002/Bone_003
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002/Bone_003/Bone_004
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002/Bone_003/Bone_004/Bone_005
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002/Bone_003/Bone_004/Bone_005/Bone_006
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002/Bone_003/Bone_004/Bone_005/Bone_006/Bone_007
+        weight: 1
+      - path: A_Page_3/Bone/Bone_001/Bone_002/Bone_003/Bone_004/Bone_005/Bone_006/Bone_007/Bone_008
+        weight: 1
+      - path: Cylinder
+        weight: 1
+      - path: Cylinder_001
+        weight: 1
+      - path: Page_1
+        weight: 1
+      - path: Page_2
+        weight: 1
+      - path: Page_3
+        weight: 1
+      - path: Plane
+        weight: 1
+      - path: Plane_001
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
