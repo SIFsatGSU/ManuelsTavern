@@ -61,3 +61,11 @@ F:\Users\Jack\OneDrive\Workz\Manuel's Tavern\Temp\bin\Debug\UnityEngine.Networki
 F:\Users\Jack\OneDrive\Workz\Manuel's Tavern\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 F:\Users\Jack\OneDrive\Workz\Manuel's Tavern\obj\Debug\Assembly-CSharp.dll
 F:\Users\Jack\OneDrive\Workz\Manuel's Tavern\obj\Debug\Assembly-CSharp.pdb
+F:\Users\Jack\OneDrive\Workz\Manuel's Tavern\Temp\bin\Debug\UnityEngine.Analytics.dll
+F:\Users\Jack\OneDrive\Workz\Manuel's Tavern\Temp\bin\Debug\UnityEngine.HoloLens.dll
+F:\Users\Jack\OneDrive\Workz\Manuel's Tavern\Temp\bin\Debug\UnityEngine.PlaymodeTestsRunner.dll
+F:\Users\Jack\OneDrive\Workz\Manuel's Tavern\Temp\bin\Debug\UnityEngine.VR.dll
+F:\Users\Jack\OneDrive\Workz\Manuel's Tavern\Temp\bin\Debug\UnityEngine.PlaymodeTestsRunner.xml
+F:\Users\Jack\OneDrive\Workz\Manuel's Tavern\Temp\bin\Debug\UnityEngine.Analytics.xml
+F:\Users\Jack\OneDrive\Workz\Manuel's Tavern\Temp\bin\Debug\UnityEngine.HoloLens.xml
+F:\Users\Jack\OneDrive\Workz\Manuel's Tavern\Temp\bin\Debug\UnityEngine.VR.xml

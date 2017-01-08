@@ -14,10 +14,11 @@ public class Movement : MonoBehaviour {
     private float ySpeed = 0;
     public float currentSpeed = 0;
     public Vector3 currentDirection = new Vector3();
-    private bool crouchMode = false;
+	private Vector3 originalPosition;
 
     // Use this for initialization
     void Start () {
+		originalPosition = characterController.transform.position;
 	}
 	
 	// Update is called once per frame
@@ -53,5 +54,12 @@ public class Movement : MonoBehaviour {
         }
         characterController.Move((yMovement + currentDirection * currentSpeed) * Time.deltaTime);
         ySpeed -= gravity;
+	}
+
+	void OnTriggerEnter(Collider other) {
+		if (other.tag == "Death trigger") {
+			characterController.transform.position = originalPosition;
+			Debug.Log ("doot");
+		}
 	}
 }
