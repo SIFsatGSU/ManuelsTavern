@@ -16,6 +16,10 @@ public class Look : MonoBehaviour {
 	public GameObject page3;
 	public Material paperMaterial;
 	public Material pageMaterialPrefab;
+	public AudioSource bringUpClipboard;
+	public AudioSource bringDownClipboard;
+	public AudioSource flipForward;
+	public AudioSource flipBackward;
 
 	public float mouseEnable; // 1 = enabled, 0 = disabled.
     public float xRotationSpeed;
@@ -41,6 +45,7 @@ public class Look : MonoBehaviour {
 		pictureFolderMap ["Pictures Main Room Left"] = "Main Room Left";
 		clipboardAnimator.Play ("Page 1 flip reversed", 0, 1);
 		clipboardShowHideAnimator.Play ("Hide Clipboard", 0, 1);
+		Cursor.visible = false;
 	}
 	
 	// Update is called once per frame
@@ -117,6 +122,7 @@ public class Look : MonoBehaviour {
 			} else {
 				setPageMaterial (page1, paperMaterial, 1);
 			}
+			bringUpClipboard.Play ();
 		}
 
 		// End detail viewing mode.
@@ -125,6 +131,7 @@ public class Look : MonoBehaviour {
 			clipboardShowHideAnimator.Play ("Hide Clipboard");
 			reticle.GetComponent<MeshRenderer> ().enabled = true;
 			clickSign.GetComponent<MeshRenderer> ().enabled = true;
+			bringDownClipboard.Play ();
 		}
 
 		// Reprobe the reflection for the clipboard's clip.
@@ -141,9 +148,9 @@ public class Look : MonoBehaviour {
 		}
 
 		// Handle the detail page flipping.
-		if (detailPages.Length > 0 && scrollable) {
-			float mouseScroll = Input.GetAxisRaw ("Mouse ScrollWheel");
-			if (mouseScroll < 0) { // Scroll down
+		if (detailViewingMode && detailPages.Length > 0 && scrollable) {
+			float scroll = Input.GetAxisRaw ("Details Scroll");
+			if (scroll < 0) { // Scroll down
 				if (currentViewingPage < detailPages.Length - 1) {
 					scrollable = false;
 					currentViewingPage++;
@@ -159,8 +166,9 @@ public class Look : MonoBehaviour {
 							clipboardAnimator.Play ("Page 2 flip", 0, 0);
 						}
 					}
+					flipForward.Play ();
 				}
-			} else if (mouseScroll > 0) { // Scroll up
+			} else if (scroll > 0) { // Scroll up
 				scrollable = false;
 				if (currentViewingPage > 0) {
 					currentViewingPage--;
@@ -175,6 +183,7 @@ public class Look : MonoBehaviour {
 							clipboardAnimator.Play ("Page 2 flip reversed", 0, 0);
 						}
 					}
+					flipBackward.Play ();
 				}
 			}
 		}
