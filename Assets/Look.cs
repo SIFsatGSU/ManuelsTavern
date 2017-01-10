@@ -9,6 +9,8 @@ public class Look : MonoBehaviour {
 	public GameObject reticle;
 	public GameObject clickSign;
 	public GameObject clipboard;
+	public GameObject clipboardContainer;
+	public GameObject clipboardTarget;
 	public Animator clipboardAnimator;
 	public Animator clipboardShowHideAnimator;
 	public GameObject page1;
@@ -106,6 +108,9 @@ public class Look : MonoBehaviour {
 			reticle.GetComponent<MeshRenderer> ().enabled = false;
 			clickSign.GetComponent<MeshRenderer> ().enabled = false;
 			clipboardReflectionRefresh = true;
+			playerCamera.transform.localEulerAngles = new Vector3(0, 0, 0);
+			clipboardContainer.transform.position = clipboardTarget.transform.position;
+			//clipboardContainer.transform.LookAt (playerCamera.transform.position);
 
 			// Initiate the detail pages materials.
 			string path = pictureFolderMap[wallLookedAt] + "/" + pictureLookedAt;
