@@ -69,3 +69,4 @@ F:\Users\Jack\OneDrive\Workz\Manuel's Tavern\Temp\bin\Debug\UnityEngine.Playmode
 F:\Users\Jack\OneDrive\Workz\Manuel's Tavern\Temp\bin\Debug\UnityEngine.Analytics.xml
 F:\Users\Jack\OneDrive\Workz\Manuel's Tavern\Temp\bin\Debug\UnityEngine.HoloLens.xml
 F:\Users\Jack\OneDrive\Workz\Manuel's Tavern\Temp\bin\Debug\UnityEngine.VR.xml
+F:\Users\Jack\OneDrive\Workz\Manuel's Tavern\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb

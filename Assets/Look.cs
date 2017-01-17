@@ -2,6 +2,7 @@
 using UnityEngine.VR;
 using System.Collections;
 using System.IO;
+using UnityStandardAssets.ImageEffects;
 
 public class Look : MonoBehaviour {
     public Camera playerCamera;
@@ -32,7 +33,6 @@ public class Look : MonoBehaviour {
     private float currentYRotation = 0;
 	private float clickSignAlpha = 0;
 	private bool detailViewingMode = false;
-	GameObject[] pictureFrames;
 	private string pictureLookedAt = "";
 	private string wallLookedAt = "";
 	private int currentViewingPage = 0;
@@ -43,7 +43,6 @@ public class Look : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		pictureFrames = GameObject.FindGameObjectsWithTag("PictureFrame");
 		pictureFolderMap ["Pictures Main Room Left"] = "Main Room Left";
 		clipboardAnimator.Play ("Page 1 flip reversed", 0, 1);
 		clipboardShowHideAnimator.Play ("Hide Clipboard", 0, 1);
@@ -54,9 +53,9 @@ public class Look : MonoBehaviour {
 	void Update () {
 		// Rotate camera.
 		float xRotation = xRotationSpeed * Input.GetAxisRaw("Look X") * Time.deltaTime;
-        float yRotation = yRotationSpeed * Input.GetAxisRaw("Look Y") * Time.deltaTime;
-        xRotation += mouseEnable * xRotationSpeed * Input.GetAxisRaw("Mouse X") * Time.deltaTime;
-		yRotation += mouseEnable * yRotationSpeed * Input.GetAxisRaw("Mouse Y") * Time.deltaTime;
+		float yRotation = yRotationSpeed * Input.GetAxisRaw("Look Y") * Time.deltaTime;
+		xRotation += mouseEnable * xRotationSpeed * Input.GetAxis("Mouse X") * Time.deltaTime;
+		yRotation += mouseEnable * yRotationSpeed * Input.GetAxis("Mouse Y") * Time.deltaTime;
 		if (detailViewingMode) {
 			currentYRotation = 0;
 		} else {
@@ -74,6 +73,9 @@ public class Look : MonoBehaviour {
         } else {
             forwardRay = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
         }
+
+		GetComponent<Movement>().forwardVector = new Vector3(forwardRay.direction.x, 0, forwardRay.direction.z).normalized;
+
         Debug.DrawRay(forwardRay.origin, forwardRay.direction);
         RaycastHit hit;
 		bool showingClickSign = false;
@@ -128,6 +130,7 @@ public class Look : MonoBehaviour {
 				setPageMaterial (page1, paperMaterial, 1);
 			}
 			bringUpClipboard.Play ();
+			GetComponentInChildren<DepthOfField> ().enabled = true;
 		}
 
 		// End detail viewing mode.
@@ -137,6 +140,7 @@ public class Look : MonoBehaviour {
 			reticle.GetComponent<MeshRenderer> ().enabled = true;
 			clickSign.GetComponent<MeshRenderer> ().enabled = true;
 			bringDownClipboard.Play ();
+			GetComponentInChildren<DepthOfField> ().enabled = false;
 		}
 
 		// Reprobe the reflection for the clipboard's clip.

@@ -7,13 +7,11 @@ public class Movement : MonoBehaviour {
     public GameObject cameraContainer;
     public float maxSpeed;
     public float jumpStrength;
-    public float acceleration;
     public float normalHeight;
     public float crouchHeight;
     private float gravity = .3f;
-    private float ySpeed = 0;
-    public float currentSpeed = 0;
-    public Vector3 currentDirection = new Vector3();
+	private float ySpeed = 0;
+	public Vector3 forwardVector;
 	private Vector3 originalPosition;
 
     // Use this for initialization
@@ -23,13 +21,13 @@ public class Movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (characterController.isGrounded) {
-            ySpeed = 0;
-        }
         if (characterController.velocity.y == 0) { // Hit ceiling.
-            ySpeed = -.1f;
+            ySpeed = -.11f;
         }
-        if (Input.GetButton("Jump") && characterController.isGrounded) {
+		if (characterController.isGrounded) {
+			ySpeed = 0;
+		}
+		if (Input.GetButton("Jump") && characterController.isGrounded) {
             ySpeed = jumpStrength;
         }
         if (Input.GetButton("Crouch")) {
@@ -39,20 +37,11 @@ public class Movement : MonoBehaviour {
         }
         characterController.center = new Vector3(0, characterController.height / 2, 0);
         cameraContainer.transform.localPosition = new Vector3(0, characterController.height - .15f, 0);
-        Vector3 zMovement = transform.forward * Input.GetAxisRaw("Vertical");
-        Vector3 xMovement = transform.right * Input.GetAxisRaw("Horizontal");
+		Vector3 rightVector = Vector3.Cross (transform.up, forwardVector);
+		Vector3 zMovement = forwardVector * Input.GetAxisRaw("Vertical");
+		Vector3 xMovement = rightVector * Input.GetAxisRaw("Horizontal");
         Vector3 yMovement = transform.up * ySpeed;
-        if (characterController.velocity.magnitude == 0) {
-            currentSpeed = 0;
-        }
-        if (zMovement.magnitude > 0 || xMovement.magnitude > 0) {
-            currentDirection = zMovement + xMovement;
-            currentDirection.Normalize();
-            currentSpeed = Mathf.Clamp(currentSpeed + acceleration, 0, maxSpeed);
-        } else {
-            currentSpeed = Mathf.Clamp(currentSpeed - acceleration, 0, maxSpeed);
-        }
-        characterController.Move((yMovement + currentDirection * currentSpeed) * Time.deltaTime);
+		characterController.Move((yMovement + zMovement + xMovement) * Time.deltaTime);
         ySpeed -= gravity;
 	}
 
