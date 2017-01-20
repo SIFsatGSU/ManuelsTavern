@@ -115,7 +115,7 @@ public class Look : MonoBehaviour {
 			//clipboardContainer.transform.LookAt (playerCamera.transform.position);
 
 			// Initiate the detail pages materials.
-			string path = pictureFolderMap[wallLookedAt] + "/" + pictureLookedAt;
+			string path = "Picture frames/" + pictureFolderMap[wallLookedAt] + "/" + pictureLookedAt + "/" + "Details";
 			Object[] textures = Resources.LoadAll (path);
 			detailPages = new Material[textures.Length];
 			if (textures.Length > 0) {
