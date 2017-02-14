@@ -1,11 +1,11 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manuel's Tavern", "Assembly-CSharp-firstpass.csproj", "{F4288581-62A7-12CD-E27C-6BEE1DCC34C1}"
+# Visual Studio 2008
+
+Project("{DCEFBC62-B187-6C65-0A69-53580D912C9C}") = "Manuel's Tavern", "Assembly-CSharp-firstpass.csproj", "{F4288581-62A7-12CD-E27C-6BEE1DCC34C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manuel's Tavern", "Assembly-CSharp.csproj", "{BFEBC259-4ABF-67F6-7DA5-DDFC5162C7A5}"
+Project("{DCEFBC62-B187-6C65-0A69-53580D912C9C}") = "Manuel's Tavern", "Assembly-CSharp.csproj", "{BFEBC259-4ABF-67F6-7DA5-DDFC5162C7A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manuel's Tavern", "Assembly-CSharp-Editor-firstpass.csproj", "{527CB98B-F7D6-3359-5F6C-D0A4AC0080DE}"
+Project("{DCEFBC62-B187-6C65-0A69-53580D912C9C}") = "Manuel's Tavern", "Assembly-CSharp-Editor-firstpass.csproj", "{527CB98B-F7D6-3359-5F6C-D0A4AC0080DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
