@@ -10,19 +10,9 @@ public class Look : MonoBehaviour {
 	public GameObject reticle;
 	public GameObject clickSign;
 	public GameObject clipboard;
-	public GameObject clipboardContainer;
-	public GameObject clipboardTarget;
-	public Animator clipboardAnimator;
-	public Animator clipboardShowHideAnimator;
-	public GameObject page1;
-	public GameObject page2;
-	public GameObject page3;
-	public Material paperMaterial;
+
 	public Material pageMaterialPrefab;
-	public AudioSource bringUpClipboard;
-	public AudioSource bringDownClipboard;
-	public AudioSource flipForward;
-	public AudioSource flipBackward;
+	public Animator clipboardAnimator;
 
 	public float mouseEnable; // 1 = enabled, 0 = disabled.
     public float xRotationSpeed;
@@ -35,18 +25,15 @@ public class Look : MonoBehaviour {
 	private bool detailViewingMode = false;
 	private string pictureLookedAt = "";
 	private string wallLookedAt = "";
-	private int currentViewingPage = 0;
 	private Hashtable pictureFolderMap = new Hashtable();
-	private bool clipboardReflectionRefresh;
-	private Material[] detailPages = new Material[0];
 	private bool scrollable = true;
+	private ClipboardController clipboardController;
 
     // Use this for initialization
     void Start () {
 		pictureFolderMap ["Pictures Main Room Left"] = "Main Room Left";
-		clipboardAnimator.Play ("Page 1 flip reversed", 0, 1);
-		clipboardShowHideAnimator.Play ("Hide Clipboard", 0, 1);
 		Cursor.visible = false;
+		clipboardController = clipboard.GetComponent<ClipboardController> ();
 	}
 	
 	// Update is called once per frame
@@ -107,50 +94,34 @@ public class Look : MonoBehaviour {
 		// Start detail viewing mode.
 		if (!detailViewingMode && Input.GetAxisRaw("Use") > 0 && pictureLookedAt != "") {
 			detailViewingMode = true;
-			clipboardShowHideAnimator.Play ("Show Clipboard");
-			clipboardAnimator.Play ("Page 1 flip reversed", 0, 1);
 			reticle.GetComponent<MeshRenderer> ().enabled = false;
 			clickSign.GetComponent<MeshRenderer> ().enabled = false;
-			clipboardReflectionRefresh = true;
 			playerCamera.transform.localEulerAngles = new Vector3(0, 0, 0);
-			clipboardContainer.transform.position = clipboardTarget.transform.position;
 			//clipboardContainer.transform.LookAt (playerCamera.transform.position);
 
 			// Initiate the detail pages materials.
 			string path = "Picture frames/" + pictureFolderMap[wallLookedAt] + "/" + pictureLookedAt + "/" + "Details";
 			Object[] textures = Resources.LoadAll (path);
-			detailPages = new Material[textures.Length];
+			clipboardController.detailPages = new Material[textures.Length];
 			if (textures.Length > 0) {
 				for (int i = 0; i < textures.Length; i++) {
-					detailPages [i] = Instantiate (pageMaterialPrefab);
-					detailPages [i].mainTexture = (Texture2D)textures [i];
+					clipboardController.detailPages [i] = Instantiate (pageMaterialPrefab);
+					clipboardController.detailPages [i].mainTexture = (Texture2D)textures [i];
 				}
 				// Page 1's detail material is the second material.
-				setPageMaterial (page1, detailPages [0], 1);
-				currentViewingPage = 0;
-			} else {
-				setPageMaterial (page1, paperMaterial, 1);
+				clipboardController.currentViewingPage = 0;
 			}
-			bringUpClipboard.Play ();
+			clipboard.GetComponent<ClipboardController> ().Show ();
 			GetComponentInChildren<DepthOfField> ().enabled = true;
 		}
 
 		// End detail viewing mode.
 		if (detailViewingMode && Input.GetAxisRaw("Cancel") > 0) {
 			detailViewingMode = false;
-			clipboardShowHideAnimator.Play ("Hide Clipboard");
+			clipboardController.Hide ();
 			reticle.GetComponent<MeshRenderer> ().enabled = true;
 			clickSign.GetComponent<MeshRenderer> ().enabled = true;
-			bringDownClipboard.Play ();
 			GetComponentInChildren<DepthOfField> ().enabled = false;
-		}
-
-		// Reprobe the reflection for the clipboard's clip.
-		if (clipboardReflectionRefresh &&
-					clipboardShowHideAnimator.GetCurrentAnimatorStateInfo(0).IsName("Show Clipboard") &&
-					clipboardShowHideAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1) {
-			clipboardReflectionRefresh = false;
-			clipboard.GetComponentInChildren<ReflectionProbe> ().RenderProbe ();
 		}
 
 		// Refresh scrollability
@@ -159,51 +130,16 @@ public class Look : MonoBehaviour {
 		}
 
 		// Handle the detail page flipping.
-		if (detailViewingMode && detailPages.Length > 0 && scrollable) {
+		if (detailViewingMode && clipboardController.detailPages.Length > 0 && scrollable) {
 			float scroll = Input.GetAxisRaw ("Details Scroll");
 			if (scroll < 0) { // Scroll down
-				if (currentViewingPage < detailPages.Length - 1) {
-					scrollable = false;
-					currentViewingPage++;
-					if (currentViewingPage == 1) {
-						if (detailPages.Length > 1) {
-							setPageMaterial(page2, detailPages[currentViewingPage], 1);
-							clipboardAnimator.Play ("Page 1 flip", 0, 0);
-						}
-					} else if (currentViewingPage > 1) {
-						if (detailPages.Length > 2) {
-							setPageMaterial(page2, detailPages[currentViewingPage - 1], 1);
-							setPageMaterial(page3, detailPages[currentViewingPage], 1);
-							clipboardAnimator.Play ("Page 2 flip", 0, 0);
-						}
-					}
-					flipForward.Play ();
-				}
+				scrollable = false;
+				clipboardController.FlipForward ();
 			} else if (scroll > 0) { // Scroll up
 				scrollable = false;
-				if (currentViewingPage > 0) {
-					currentViewingPage--;
-					if (currentViewingPage == 0) {
-						if (detailPages.Length > 1) {
-							clipboardAnimator.Play ("Page 1 flip reversed", 0, 0);
-						}
-					} else {
-						if (detailPages.Length > 2) {
-							setPageMaterial(page2, detailPages[currentViewingPage], 1);
-							setPageMaterial(page3, detailPages[currentViewingPage + 1], 1);
-							clipboardAnimator.Play ("Page 2 flip reversed", 0, 0);
-						}
-					}
-					flipBackward.Play ();
-				}
+				clipboardController.FlipBackward ();
 			}
 		}
 	}
 
-	void setPageMaterial(GameObject gameObject, Material material, int index) {
-		Material[] newMaterials = new Material[2];
-		newMaterials [index] = material;
-		newMaterials [1 - index] = paperMaterial; // The other material.
-		gameObject.GetComponent<Renderer>().materials = newMaterials;
-	}
 }

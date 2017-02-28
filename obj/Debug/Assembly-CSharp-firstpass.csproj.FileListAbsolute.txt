@@ -27,3 +27,32 @@ F:\Users\Jack\OneDrive\Workz\Manuel's Tavern\Temp\bin\Debug\UnityEngine.VR.xml
 F:\Users\Jack\OneDrive\Workz\Manuel's Tavern\obj\Debug\Assembly-CSharp-firstpass.csprojResolveAssemblyReference.cache
 F:\Users\Jack\OneDrive\Workz\Manuel's Tavern\obj\Debug\Assembly-CSharp-firstpass.dll
 F:\Users\Jack\OneDrive\Workz\Manuel's Tavern\obj\Debug\Assembly-CSharp-firstpass.pdb
+E:\ManuelsTavern\Temp\bin\Debug\Assembly-CSharp-firstpass.dll
+E:\ManuelsTavern\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
+E:\ManuelsTavern\Temp\bin\Debug\UnityEditor.dll
+E:\ManuelsTavern\Temp\bin\Debug\UnityEngine.Analytics.dll
+E:\ManuelsTavern\Temp\bin\Debug\UnityEngine.dll
+E:\ManuelsTavern\Temp\bin\Debug\UnityEngine.HoloLens.dll
+E:\ManuelsTavern\Temp\bin\Debug\UnityEngine.Networking.dll
+E:\ManuelsTavern\Temp\bin\Debug\UnityEngine.PlaymodeTestsRunner.dll
+E:\ManuelsTavern\Temp\bin\Debug\UnityEngine.UI.dll
+E:\ManuelsTavern\Temp\bin\Debug\UnityEngine.VR.dll
+E:\ManuelsTavern\Temp\bin\Debug\Mono.Cecil.dll
+E:\ManuelsTavern\Temp\bin\Debug\Unity.SerializationLogic.dll
+E:\ManuelsTavern\Temp\bin\Debug\Unity.DataContract.dll
+E:\ManuelsTavern\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+E:\ManuelsTavern\Temp\bin\Debug\Unity.UNetWeaver.dll
+E:\ManuelsTavern\Temp\bin\Debug\Unity.CecilTools.dll
+E:\ManuelsTavern\Temp\bin\Debug\Mono.Cecil.Pdb.dll
+E:\ManuelsTavern\Temp\bin\Debug\Mono.Cecil.Mdb.dll
+E:\ManuelsTavern\Temp\bin\Debug\UnityEngine.xml
+E:\ManuelsTavern\Temp\bin\Debug\UnityEditor.xml
+E:\ManuelsTavern\Temp\bin\Debug\UnityEngine.UI.xml
+E:\ManuelsTavern\Temp\bin\Debug\UnityEngine.Networking.xml
+E:\ManuelsTavern\Temp\bin\Debug\UnityEngine.PlaymodeTestsRunner.xml
+E:\ManuelsTavern\Temp\bin\Debug\UnityEngine.Analytics.xml
+E:\ManuelsTavern\Temp\bin\Debug\UnityEngine.HoloLens.xml
+E:\ManuelsTavern\Temp\bin\Debug\UnityEngine.VR.xml
+E:\ManuelsTavern\obj\Debug\Assembly-CSharp-firstpass.csprojResolveAssemblyReference.cache
+E:\ManuelsTavern\obj\Debug\Assembly-CSharp-firstpass.dll
+E:\ManuelsTavern\obj\Debug\Assembly-CSharp-firstpass.pdb
