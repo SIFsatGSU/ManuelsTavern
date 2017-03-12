@@ -6,6 +6,7 @@ using UnityStandardAssets.ImageEffects;
 
 public class Look : MonoBehaviour {
     public Camera playerCamera;
+    public GameObject vrHead;
     public GameObject UIElement;
 	public GameObject reticle;
 	public GameObject clickSign;
@@ -54,13 +55,9 @@ public class Look : MonoBehaviour {
         // Ray cast
         Ray forwardRay;
         if (VRDevice.isPresent) {
-            Vector3 forward = InputTracking.GetLocalRotation(VRNode.Head) * new Vector3(0, 0, 1);
-            forward = transform.rotation * forward;
-            forwardRay = new Ray(playerCamera.transform.position, forward);
-        } else {
-            forwardRay = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
+            vrHead.transform.localRotation = InputTracking.GetLocalRotation(VRNode.Head);
         }
-
+        forwardRay = new Ray(vrHead.transform.position, vrHead.transform.forward);
 		GetComponent<Movement>().forwardVector = new Vector3(forwardRay.direction.x, 0, forwardRay.direction.z).normalized;
 
         Debug.DrawRay(forwardRay.origin, forwardRay.direction);
