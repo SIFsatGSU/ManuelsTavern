@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ClipboardController : MonoBehaviour {
-	public Animator clipboardAnimator;
+    public const int FLIPPING_MODE_NONE = 0;
+    public const int FLIPPING_MODE_FORWARD = 1;
+    public const int FLIPPING_MODE_BACKWARD = 2;
+    public Animator clipboardAnimator;
 	public Animator clipboardShowHideAnimator;
 	public GameObject clipboardTarget;
 	public GameObject clipboardContainer;
@@ -12,17 +15,31 @@ public class ClipboardController : MonoBehaviour {
 	public GameObject page2;
 	public GameObject page3;
 	public Material paperMaterial;
+    [HideInInspector]
 	public int currentViewingPage;
 	public AudioSource bringUpClipboard;
 	public AudioSource bringDownClipboard;
 	public AudioSource flipForward;
 	public AudioSource flipBackward;
-	private bool clipboardReflectionRefresh;
-
+    public GameObject pageGripContainer;
+    public GameObject page1TailBone;
+    public GameObject page2TailBone;
+    [HideInInspector]
+    public bool oculusControllerMode;
+    [HideInInspector]
+    public int controllerFlippingMode;
+    [HideInInspector]
+    public float flippingAlpha;
+    private bool clipboardReflectionRefresh;
+    private string pageReverseAnimation;
 	// Use this for initialization
 	void Start () {
 		clipboardAnimator.Play ("Page 1 flip reversed", 0, 1);
-		clipboardShowHideAnimator.Play ("Hide Clipboard", 0, 1);
+        if (!oculusControllerMode) {
+            clipboardShowHideAnimator.Play("Hide Clipboard", 0, 1);
+        } else {
+            clipboardShowHideAnimator.Play("Show Clipboard", 0, 1);
+        }
 	}
 	
 	// Update is called once per frame
@@ -34,28 +51,101 @@ public class ClipboardController : MonoBehaviour {
 			clipboardReflectionRefresh = false;
 			GetComponentInChildren<ReflectionProbe> ().RenderProbe ();
 		}
+
+        if (controllerFlippingMode == FLIPPING_MODE_FORWARD) {
+            if (currentViewingPage == 1) {
+                if (detailPages.Length > 1) {
+                    clipboardAnimator.Play("Page 1 flip", 0, flippingAlpha);
+                    pageReverseAnimation = "Page 1 flip reversed";
+                    gripToPage(page1TailBone);
+                }
+            } else if (currentViewingPage > 1) {
+                if (detailPages.Length > 2) {
+                    clipboardAnimator.Play("Page 2 flip", 0, flippingAlpha);
+                    pageReverseAnimation = "Page 2 flip reversed";
+                    gripToPage(page2TailBone);
+                }
+            }
+        }
+
+        if (controllerFlippingMode == FLIPPING_MODE_BACKWARD) {
+            if (currentViewingPage == 0) {
+                if (detailPages.Length > 1) {
+                    clipboardAnimator.Play("Page 1 flip reversed", 0, flippingAlpha);
+                    pageReverseAnimation = "Page 1 flip";
+                    gripToPage(page1TailBone);
+                }
+            } else {
+                if (detailPages.Length > 2) {
+                    clipboardAnimator.Play("Page 2 flip reversed", 0, flippingAlpha);
+                    pageReverseAnimation = "Page 2 flip";
+                    gripToPage(page2TailBone);
+                }
+            }
+        }
 	}
+
+    public void FinalizeFlipping() {
+        print("lobster");
+        if (flippingAlpha < .5) {
+            if (controllerFlippingMode == FLIPPING_MODE_FORWARD) {
+                FlipBackward();
+            } else if (controllerFlippingMode == FLIPPING_MODE_BACKWARD) {
+                FlipForward();
+            }
+            clipboardAnimator.Play(pageReverseAnimation, 0, 1 - flippingAlpha);
+        }
+    }
+
+    private void gripToPage(GameObject pageTailBone) {
+        pageGripContainer.transform.position = pageTailBone.transform.position;
+        pageGripContainer.transform.rotation = pageTailBone.transform.rotation;
+    }
 
 	public void Show() {
-		clipboardShowHideAnimator.Play ("Show Clipboard");
-		clipboardAnimator.Play ("Page 1 flip reversed", 0, 1);
-		clipboardReflectionRefresh = true;
-		clipboardContainer.transform.position = clipboardTarget.transform.position;
-		if (detailPages.Length > 0) {
-			setPageMaterial (page1, detailPages [0], 1);
-		} else {
-			setPageMaterial (page1, paperMaterial, 1);
-		}
-		bringUpClipboard.Play ();
+        if (!oculusControllerMode) {
+            clipboardShowHideAnimator.Play("Show Clipboard");
+            clipboardAnimator.Play("Page 1 flip reversed", 0, 1);
+            clipboardReflectionRefresh = true;
+            clipboardContainer.transform.position = clipboardTarget.transform.position;
+            if (detailPages.Length > 0) {
+                setPageMaterial(page1, detailPages[0], 1);
+            } else {
+                setPageMaterial(page1, paperMaterial, 1);
+            }
+            bringUpClipboard.Play();
+        } else {
+            clipboardAnimator.Play("Page 1 flip reversed", 0, 1);
+            clipboardReflectionRefresh = true;
+            if (detailPages.Length > 0) {
+                setPageMaterial(page1, detailPages[0], 1);
+            } else {
+                setPageMaterial(page1, paperMaterial, 1);
+            }
+        }
 	}
 
+    public bool CanFlipForward() {
+        return currentViewingPage < detailPages.Length - 1;
+    }
+
+    public bool CanFlipBackward() {
+        return currentViewingPage > 0;
+    }
+
+    public void ShowAtTouchController() {
+        clipboardShowHideAnimator.Play("Show Clipboard", 0, 1);
+    }
+
 	public void Hide() {
-		clipboardShowHideAnimator.Play ("Hide Clipboard");
-		bringDownClipboard.Play ();
+        if (!oculusControllerMode) {
+            clipboardShowHideAnimator.Play("Hide Clipboard");
+            bringDownClipboard.Play();
+        }
 	}
 
 	public void FlipForward() {
-		if (currentViewingPage < detailPages.Length - 1) {
+        if (CanFlipForward()) {
 			currentViewingPage++;
 			if (currentViewingPage == 1) {
 				if (detailPages.Length > 1) {
@@ -74,7 +164,7 @@ public class ClipboardController : MonoBehaviour {
 	}
 
 	public void FlipBackward() {
-		if (currentViewingPage > 0) {
+        if (CanFlipBackward()) {
 			currentViewingPage--;
 			if (currentViewingPage == 0) {
 				if (detailPages.Length > 1) {
