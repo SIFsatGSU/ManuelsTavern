@@ -27,6 +27,8 @@ public class GrabMotionTrack : MonoBehaviour {
             rigidBody.velocity = new Vector3(0, 0, 0);
             rigidBody.angularVelocity = new Vector3(0, 0, 0);
             GetComponent<Collider>().enabled = false;
+			//rigidBody.useGravity = false;
+			//rigidBody.isKinematic = true;
         } else if (enableToggle && enable) {
             Vector3 targetVelocity = (transform.localPosition - lastPosition) / Time.deltaTime;
             Quaternion deltaRotation = transform.rotation * Quaternion.Inverse(lastRotation);
@@ -40,6 +42,8 @@ public class GrabMotionTrack : MonoBehaviour {
             lastPosition = transform.position;
             lastRotation = transform.rotation;
         } else if (enableToggle && !enable) {
+			//rigidBody.useGravity = true;
+			//rigidBody.isKinematic = false;
             GetComponent<Collider>().enabled = true;
         }
         enableToggle = enable;
