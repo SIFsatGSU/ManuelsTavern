@@ -34,18 +34,18 @@ public class Movement : MonoBehaviour {
             if (Input.GetButton("Jump") && characterController.isGrounded) {
                 ySpeed = jumpStrength;
             }
-            if (Input.GetButton("Crouch")) {
+            /*if (Input.GetButton("Crouch")) {
                 characterController.height = crouchHeight;
             } else {
                 characterController.height = normalHeight;
-            }
+            }*/
         } else { // Specific handler for Oculus Rift controller.
 
         }
 
         characterController.center = new Vector3(0, characterController.height / 2, 0);
-        cameraContainer.transform.localPosition = new Vector3(cameraContainer.transform.localPosition.x,
-                characterController.height - .15f, cameraContainer.transform.localPosition.z);
+        /*cameraContainer.transform.localPosition = new Vector3(cameraContainer.transform.localPosition.x,
+                characterController.height - .15f, cameraContainer.transform.localPosition.z);*/
         Vector3 zMovement, xMovement, yMovement;
         Vector3 forwardVector = playerCamera.transform.forward;
         forwardVector[1] = 0;
