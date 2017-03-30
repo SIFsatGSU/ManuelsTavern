@@ -145,12 +145,13 @@ public class RayCastController : MonoBehaviour {
             animateHand(rightHandController, rightFistLevel, rightTriggerTouch, rightTriggerLevel, rightThumb);
             animateHand(leftHandController, leftFistLevel, leftTriggerTouch, leftTriggerLevel, leftThumb);
 
-            if (leftFistLevel > linearInputThreshold && leftTriggerLevel > linearInputThreshold) { // Show clipboard on left hand when all curled.
+            if (leftTriggerLevel > linearInputThreshold) { // Show clipboard on left hand trigger is pu.
                 clipboardController.ShowAtTouchController();
                 snapObjectToPoint(clipboardContainer, clipboardHoldingPoint, leftHandPoint);
                 clipboardContainer.GetComponent<GrabMotionTrack>().enable = true;
                 clipboard.GetComponentInChildren<Light>().enabled = true; // Turn on the clipboard light.
                 leftHand.GetComponent<OVRHandController>().thumbTarget = .9f;
+				leftHand.GetComponent<OVRHandController>().fistTarget = 1;
             } else {
                 clipboardContainer.GetComponent<GrabMotionTrack>().enable = false;
                 clipboard.GetComponentInChildren<Light>().enabled = false; // Turn off the clipboard light.

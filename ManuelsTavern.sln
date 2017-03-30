@@ -1,13 +1,13 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManuelsTavern", "Assembly-CSharp-firstpass.csproj", "{4F60D348-7AAB-47C5-640E-C4877C6A3495}"
+# Visual Studio 2008
+
+Project("{DCEA902E-F7CF-425D-89C1-95E725B6FD9D}") = "ManuelsTavern", "Assembly-CSharp-firstpass.csproj", "{4F60D348-7AAB-47C5-640E-C4877C6A3495}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManuelsTavern", "Assembly-CSharp.csproj", "{42B44775-6A6E-24CC-2315-6D0EB3895D5D}"
+Project("{DCEA902E-F7CF-425D-89C1-95E725B6FD9D}") = "ManuelsTavern", "Assembly-CSharp.csproj", "{42B44775-6A6E-24CC-2315-6D0EB3895D5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManuelsTavern", "Assembly-CSharp-Editor-firstpass.csproj", "{A4A6E8D0-78B5-0A89-A8EC-051AC9A6CAF6}"
+Project("{DCEA902E-F7CF-425D-89C1-95E725B6FD9D}") = "ManuelsTavern", "Assembly-CSharp-Editor-firstpass.csproj", "{A4A6E8D0-78B5-0A89-A8EC-051AC9A6CAF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManuelsTavern", "Assembly-CSharp-Editor.csproj", "{E85DF047-15C1-A2BB-3232-2477108856EE}"
+Project("{DCEA902E-F7CF-425D-89C1-95E725B6FD9D}") = "ManuelsTavern", "Assembly-CSharp-Editor.csproj", "{E85DF047-15C1-A2BB-3232-2477108856EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
