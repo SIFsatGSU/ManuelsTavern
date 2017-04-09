@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CollisionAudio : MonoBehaviour {
-	public AudioSource tableHit;
-	public float tableHitSqrThreshold;
+	public AudioSource audioSource;
+    public float minHitVelocity;
+    public float maxHitVelocity;
+    public string[] collisionObjectTags;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -16,9 +19,17 @@ public class CollisionAudio : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision collision) {
-		print (collision.relativeVelocity.sqrMagnitude);
-		if (collision.relativeVelocity.sqrMagnitude > 1) {
-			tableHit.Play ();
+        bool tagAccepted = false;
+        foreach (string tag in collisionObjectTags) {
+            if (collision.gameObject.tag == tag) tagAccepted = true;
+        }
+        if (!tagAccepted) return;
+        float velocity = collision.relativeVelocity.magnitude;
+		print (velocity);
+        if (velocity > minHitVelocity) {
+            float volume = (velocity - minHitVelocity) / (maxHitVelocity - minHitVelocity);
+            audioSource.volume = Mathf.Clamp01(volume);
+            audioSource.Play();
 		}
 	}
 }
