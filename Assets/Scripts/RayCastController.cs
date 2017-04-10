@@ -60,7 +60,7 @@ public class RayCastController : MonoBehaviour {
         } else { // Cast ray from right hand if there's a touch controller.
             forwardRay = new Ray(rightHand.transform.position, rightHand.transform.forward);
         }
-
+        
         Debug.DrawRay(forwardRay.origin, forwardRay.direction);
         RaycastHit hit;
         bool showingClickSign = false;
