@@ -37,6 +37,7 @@ public class RayCastController : MonoBehaviour {
     private GameObject clipboardBottomPoint;
     private GameObject clipboardTopPoint;
     private bool rightHandTrigger = false;
+	private bool leftHandTrigger = false;
 
 	// Use this for initialization
 	void Start () {
@@ -145,17 +146,26 @@ public class RayCastController : MonoBehaviour {
             animateHand(rightHandController, rightFistLevel, rightTriggerTouch, rightTriggerLevel, rightThumb);
             animateHand(leftHandController, leftFistLevel, leftTriggerTouch, leftTriggerLevel, leftThumb);
 
-            if (leftTriggerLevel > linearInputThreshold) { // Show clipboard on left hand trigger is pu.
+			bool currentLeftHandTrigger = leftTriggerLevel > linearInputThreshold;
+			if (!leftHandTrigger && currentLeftHandTrigger) { // Start holding clipboard.
                 clipboardController.ShowAtTouchController();
                 snapObjectToPoint(clipboardContainer, clipboardHoldingPoint, leftHandPoint);
                 clipboardContainer.GetComponent<GrabMotionTrack>().enable = true;
                 clipboard.GetComponentInChildren<Light>().enabled = true; // Turn on the clipboard light.
                 leftHand.GetComponent<OVRHandController>().thumbTarget = .9f;
 				leftHand.GetComponent<OVRHandController>().fistTarget = 1;
-            } else {
+				clipboardContainer.GetComponentInChildren<ReflectionProbe> ().RenderProbe ();
+			} if (leftHandTrigger && currentLeftHandTrigger) { // Holding clipboard
+				clipboardController.ShowAtTouchController();
+				snapObjectToPoint(clipboardContainer, clipboardHoldingPoint, leftHandPoint);
+				leftHand.GetComponent<OVRHandController>().thumbTarget = .9f;
+				leftHand.GetComponent<OVRHandController>().fistTarget = 1;
+			} else if (leftHandTrigger && !currentLeftHandTrigger) {
                 clipboardContainer.GetComponent<GrabMotionTrack>().enable = false;
                 clipboard.GetComponentInChildren<Light>().enabled = false; // Turn off the clipboard light.
             }
+			leftHandTrigger = currentLeftHandTrigger;
+
             bool currentRightHandTrigger = rightTriggerLevel > linearInputThreshold;
             if (!rightHandTrigger && currentRightHandTrigger) { // Just pulled trigger.
                 if ((rightHandPoint.transform.position - clipboardBottomPoint.transform.position).sqrMagnitude < grippingRadius * grippingRadius) {
