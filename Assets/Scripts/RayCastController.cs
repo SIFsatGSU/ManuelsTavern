@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityStandardAssets.ImageEffects;
+using UnityEngine.PostProcessing;
+//using UnityStandardAssets.ImageEffects;
 
 public class RayCastController : MonoBehaviour {
     public Camera playerCamera;
@@ -19,6 +20,7 @@ public class RayCastController : MonoBehaviour {
     public float linearInputThreshold;
     public float grippingRadius;
     public GameObject pageGripPoint;
+	public PostProcessingProfile postProcessingProfile;
     [HideInInspector]
     public bool oculusControllerMode;
     [HideInInspector]
@@ -88,7 +90,7 @@ public class RayCastController : MonoBehaviour {
             clickSignAlpha = Mathf.Max(clickSignAlpha - clickSignAlphaSpeed, 0);
         }
         Color reticleColor = reticle.GetComponent<Renderer>().material.color;
-        //reticle.GetComponent<Renderer> ().material.color = new Color(reticleColor.r, reticleColor.g, reticleColor.b, clickSignAlpha);
+        reticle.GetComponent<Renderer> ().material.color = new Color(reticleColor.r, reticleColor.g, reticleColor.b, clickSignAlpha);
         clickSign.GetComponent<TextMesh>().color = new Color(1, 1, 1, clickSignAlpha);
 
         if (!oculusControllerMode) { // Mouse and keyboard (or controller) mode.
@@ -101,7 +103,8 @@ public class RayCastController : MonoBehaviour {
                 //clipboardContainer.transform.LookAt (playerCamera.transform.position);
                 loadClipboardContent();
                 clipboard.GetComponent<ClipboardController>().Show();
-                GetComponentInChildren<DepthOfField>().enabled = true;
+                //GetComponentInChildren<DepthOfField>().enabled = true;
+				postProcessingProfile.depthOfField.enabled = true;
             }
 
             // End detail viewing mode.
@@ -110,7 +113,8 @@ public class RayCastController : MonoBehaviour {
                 clipboardController.Hide();
                 reticle.GetComponent<MeshRenderer>().enabled = true;
                 clickSign.GetComponent<MeshRenderer>().enabled = true;
-                GetComponentInChildren<DepthOfField>().enabled = false;
+                //GetComponentInChildren<DepthOfField>().enabled = false;
+				postProcessingProfile.depthOfField.enabled = false;
             }
 
             // Refresh scrollability

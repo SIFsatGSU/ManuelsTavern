@@ -2,7 +2,7 @@
 using UnityEngine.VR;
 using System.Collections;
 using System.IO;
-using UnityStandardAssets.ImageEffects;
+//using UnityStandardAssets.ImageEffects;
 
 public class Look : MonoBehaviour {
     public Camera playerCamera;

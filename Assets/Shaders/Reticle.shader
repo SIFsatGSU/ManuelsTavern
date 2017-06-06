@@ -47,7 +47,7 @@
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
-				return float4(_Color.rgb * _Multiplier, 1);
+				return float4(_Color.rgb * _Multiplier, _Color.a);
 			}
 			ENDCG
 		}
