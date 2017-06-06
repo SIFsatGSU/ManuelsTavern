@@ -41,7 +41,7 @@ public class RayCastController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        pictureFolderMap["Pictures Main Room Left"] = "Main Room Left";
+        pictureFolderMap["Pictures Main Room Left"] = "Main Room North Left";
         leftHandPoint = leftHand.transform.GetChild(0).gameObject;
         rightHandPoint = rightHand.transform.GetChild(0).gameObject;
         rightHandModelPoint = rightHandModel.transform.GetChild(1).gameObject;
@@ -220,6 +220,7 @@ public class RayCastController : MonoBehaviour {
     void loadClipboardContent() {
         // Initiate the detail pages materials.
         string path = "Picture frames/" + pictureFolderMap[wallLookedAt] + "/" + pictureLookedAt + "/" + "Details";
+		print (path);
         Object[] textures = Resources.LoadAll(path);
         clipboardController.detailPages = new Material[textures.Length];
         if (textures.Length > 0) {

@@ -3,6 +3,7 @@
 	Properties
 	{
 		_Color ("Color", Color) = (1,1,1,1)
+		_Multiplier ("Multiplier", Float) = 1
 	}
 	SubShader
 	{
@@ -35,6 +36,7 @@
 			};
 
 			fixed4 _Color;
+			float _Multiplier;
 
 			v2f vert (appdata v)
 			{
@@ -45,7 +47,7 @@
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
-				return _Color;
+				return float4(_Color.rgb * _Multiplier, 1);
 			}
 			ENDCG
 		}

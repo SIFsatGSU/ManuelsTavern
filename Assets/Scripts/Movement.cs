@@ -6,7 +6,7 @@ public class Movement : MonoBehaviour {
     public CharacterController characterController;
     public GameObject cameraContainer;
     public Camera playerCamera;
-    public float maxSpeed;
+    public float speed;
     public float jumpStrength;
     public float normalHeight;
     public float crouchHeight;
@@ -59,7 +59,7 @@ public class Movement : MonoBehaviour {
             xMovement = rightVector * OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).x;
         }
         yMovement = transform.up * ySpeed;
-        characterController.Move((yMovement + zMovement + xMovement) * Time.deltaTime);
+		characterController.Move((yMovement + (zMovement + xMovement).normalized * speed) * Time.deltaTime);
         ySpeed -= gravity * Time.deltaTime;
 
         if (VRDevice.isPresent) { // Use head movement to move player to always center the camera.
