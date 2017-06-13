@@ -27,8 +27,7 @@ public class RayCastController : MonoBehaviour {
     public bool detailViewingMode = false;
     private ClipboardController clipboardController;
     private Hashtable pictureFolderMap = new Hashtable();
-    private string pictureLookedAt = "";
-    private string wallLookedAt = "";
+	private PictureFrameInfo currentFrameInfo;
     private float clickSignAlpha = 0;
     private bool scrollable = true;
     private GameObject clipboard;
@@ -67,7 +66,7 @@ public class RayCastController : MonoBehaviour {
         Debug.DrawRay(forwardRay.origin, forwardRay.direction);
         RaycastHit hit;
         bool showingClickSign = false;
-        pictureLookedAt = "";
+		currentFrameInfo = null;
         if (Physics.Raycast(forwardRay, out hit)) {
             Vector3 hitProjection = hit.point - playerCamera.transform.position;
             float distance = hitProjection.magnitude;
@@ -75,11 +74,10 @@ public class RayCastController : MonoBehaviour {
             UIElement.transform.position = hit.point;
             float reticleScale = distance * UIElementSize;
             UIElement.transform.localScale = new Vector3(reticleScale, reticleScale, reticleScale);
-            if (hit.transform.gameObject.tag == "PictureFrame") {
+			if (hit.transform.gameObject.GetComponent<PictureFrameInfo>() != null) {
                 showingClickSign = true;
                 GameObject pictureFrame = hit.transform.gameObject;
-                pictureLookedAt = hit.transform.name;
-                wallLookedAt = hit.transform.parent.name;
+				currentFrameInfo = hit.transform.gameObject.GetComponent<PictureFrameInfo>();
             }
         }
 
@@ -95,7 +93,7 @@ public class RayCastController : MonoBehaviour {
 
         if (!oculusControllerMode) { // Mouse and keyboard (or controller) mode.
             // Start detail viewing mode.
-            if (!detailViewingMode && Input.GetAxisRaw("Use") > 0 && pictureLookedAt != "") {
+			if (!detailViewingMode && Input.GetAxisRaw("Use") > 0 && currentFrameInfo != null) {
                 detailViewingMode = true;
                 reticle.GetComponent<MeshRenderer>().enabled = false;
                 clickSign.GetComponent<MeshRenderer>().enabled = false;
@@ -103,7 +101,6 @@ public class RayCastController : MonoBehaviour {
                 //clipboardContainer.transform.LookAt (playerCamera.transform.position);
                 loadClipboardContent();
                 clipboard.GetComponent<ClipboardController>().Show();
-                //GetComponentInChildren<DepthOfField>().enabled = true;
 				postProcessingProfile.depthOfField.enabled = true;
             }
 
@@ -113,7 +110,6 @@ public class RayCastController : MonoBehaviour {
                 clipboardController.Hide();
                 reticle.GetComponent<MeshRenderer>().enabled = true;
                 clickSign.GetComponent<MeshRenderer>().enabled = true;
-                //GetComponentInChildren<DepthOfField>().enabled = false;
 				postProcessingProfile.depthOfField.enabled = false;
             }
 
@@ -133,7 +129,9 @@ public class RayCastController : MonoBehaviour {
                     clipboardController.FlipBackward();
                 }
             }
+
         } else { // Oculus Rift Touch controller mode.
+			
             OVRHandController rightHandController = rightHand.GetComponent<OVRHandController>();
             OVRHandController leftHandController = leftHand.GetComponent<OVRHandController>();
 
@@ -182,7 +180,7 @@ public class RayCastController : MonoBehaviour {
                         clipboardController.controllerFlippingMode = ClipboardController.FLIPPING_MODE_BACKWARD;
                         clipboardController.FlipBackward();
                     }
-                } else if (pictureLookedAt != "") {
+				} else if (currentFrameInfo != null) {
                     loadClipboardContent();
                     clipboardController.Show();
                 }
@@ -223,9 +221,7 @@ public class RayCastController : MonoBehaviour {
 
     void loadClipboardContent() {
         // Initiate the detail pages materials.
-        string path = "Picture frames/" + pictureFolderMap[wallLookedAt] + "/" + pictureLookedAt + "/" + "Details";
-		print (path);
-        Object[] textures = Resources.LoadAll(path);
+		Object[] textures = Resources.LoadAll(currentFrameInfo.GetDetailsPath());
         clipboardController.detailPages = new Material[textures.Length];
         if (textures.Length > 0) {
             for (int i = 0; i < textures.Length; i++) {

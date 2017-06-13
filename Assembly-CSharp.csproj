@@ -132,6 +132,7 @@
      <Compile Include="Assets\Scripts\Movement.cs" />
      <Compile Include="Assets\Scripts\OVRControllerCheck.cs" />
      <Compile Include="Assets\Scripts\OVRHandController.cs" />
+     <Compile Include="Assets\Scripts\PictureFrameInfo.cs" />
      <Compile Include="Assets\Scripts\RayCastController.cs" />
      <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.shader" />
      <None Include="Assets\Shaders\Tessellation.shader" />
