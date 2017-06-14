@@ -88,7 +88,9 @@ public class RayCastController : MonoBehaviour {
             clickSignAlpha = Mathf.Max(clickSignAlpha - clickSignAlphaSpeed, 0);
         }
         Color reticleColor = reticle.GetComponent<Renderer>().material.color;
-        reticle.GetComponent<Renderer> ().material.color = new Color(reticleColor.r, reticleColor.g, reticleColor.b, clickSignAlpha);
+		if (!oculusControllerMode) {
+			reticle.GetComponent<Renderer> ().material.color = new Color (reticleColor.r, reticleColor.g, reticleColor.b, clickSignAlpha);
+		}
         clickSign.GetComponent<TextMesh>().color = new Color(1, 1, 1, clickSignAlpha);
 
         if (!oculusControllerMode) { // Mouse and keyboard (or controller) mode.
@@ -156,7 +158,6 @@ public class RayCastController : MonoBehaviour {
                 clipboard.GetComponentInChildren<Light>().enabled = true; // Turn on the clipboard light.
                 leftHand.GetComponent<OVRHandController>().thumbTarget = .9f;
 				leftHand.GetComponent<OVRHandController>().fistTarget = 1;
-				clipboardContainer.GetComponentInChildren<ReflectionProbe> ().RenderProbe ();
 			} if (leftHandTrigger && currentLeftHandTrigger) { // Holding clipboard
 				clipboardController.ShowAtTouchController();
 				snapObjectToPoint(clipboardContainer, clipboardHoldingPoint, leftHandPoint);
