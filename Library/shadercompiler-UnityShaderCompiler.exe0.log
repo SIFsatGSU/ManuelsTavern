@@ -1,5 +1,46 @@
 Base path: C:/Program Files/Unity/Editor/Data
 Cmd: initializeCompiler
+Cmd: preprocess
+  insize=1461 outsize=704 ok=1
+Cmd: preprocess
+  insize=3183 outsize=321 ok=1
+Cmd: preprocess
+  insize=2627 outsize=295 ok=1
+Cmd: preprocess
+  insize=2691 outsize=392 ok=1
+Cmd: preprocess
+  error: 1 plat 20 at (20): Unrecognized #pragma directive: addshadow
+  error: 1 plat 20 at (27): Program uses tessellation shaders, automatically setting target to ~4.6/5.0
+  error: 1 plat 20 at (227): Program uses tessellation shaders, automatically setting target to ~4.6/5.0
+  error: 1 plat 20 at (265): Program uses tessellation shaders, automatically setting target to ~4.6/5.0
+  error: 1 plat 20 at (341): Program uses tessellation shaders, automatically setting target to ~4.6/5.0
+  insize=2089 outsize=1707 ok=1
+Cmd: preprocess
+  insize=5962 outsize=1841 ok=1
+Cmd: preprocess
+  insize=32277 outsize=1539 ok=1
+Cmd: preprocess
+  insize=2724 outsize=1368 ok=1
+Cmd: preprocess
+  insize=7323 outsize=838 ok=1
+Cmd: preprocess
+  insize=983 outsize=299 ok=1
+Cmd: preprocess
+  insize=6814 outsize=496 ok=1
+Cmd: preprocess
+  insize=11666 outsize=680 ok=1
+Cmd: preprocess
+  insize=5627 outsize=2670 ok=1
+Cmd: preprocess
+  insize=1654 outsize=705 ok=1
+Cmd: preprocess
+  insize=1132 outsize=423 ok=1
+Cmd: preprocess
+  insize=3427 outsize=244 ok=1
+Cmd: preprocess
+  insize=3433 outsize=1527 ok=1
+Cmd: preprocess
+  insize=1978 outsize=955 ok=1
 Cmd: compileSnippet
   api=4 type=0 insize=802 outsize=1414 kw=SHADOWS_DEPTH _PARALLAXMAP pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1
 Cmd: compileSnippet
@@ -12,6 +53,8 @@ Cmd: compileSnippet
   api=4 type=0 insize=986 outsize=2606 kw=DIRECTIONAL _PARALLAXMAP pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1
 Cmd: compileSnippet
   api=4 type=1 insize=986 outsize=3710 kw=DIRECTIONAL _PARALLAXMAP pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1
+Cmd: compileCompute
+  api=4 insize=2341 outsize=1365 ok=1
 Cmd: compileSnippet
   api=4 type=0 insize=1062 outsize=2682 kw=UNITY_HDR_ON _PARALLAXMAP pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1
 Cmd: compileSnippet
@@ -20,13 +63,3 @@ Cmd: compileSnippet
   api=4 type=0 insize=802 outsize=854 kw=SHADOWS_CUBE _PARALLAXMAP pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1
 Cmd: compileSnippet
   api=4 type=1 insize=802 outsize=350 kw=SHADOWS_CUBE _PARALLAXMAP pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1
-Cmd: compileSnippet
-  api=1 type=0 insize=1097 outsize=2508 kw=DIRECTIONAL VERTEXLIGHT_ON _PARALLAXMAP pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1
-Cmd: compileSnippet
-  api=4 type=0 insize=986 outsize=2606 kw=DIRECTIONAL_COOKIE _PARALLAXMAP pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1
-Cmd: compileSnippet
-  api=1 type=0 insize=986 outsize=1624 kw=POINT SHADOWS_CUBE SHADOWS_SOFT _PARALLAXMAP pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1
-Cmd: compileSnippet
-  api=4 type=1 insize=986 outsize=4142 kw=POINT_COOKIE _PARALLAXMAP pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1
-Cmd: compileSnippet
-  api=1 type=1 insize=986 outsize=3020 kw=POINT SHADOWS_CUBE SHADOWS_SOFT _PARALLAXMAP pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1
