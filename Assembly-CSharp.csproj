@@ -127,6 +127,7 @@
      <Compile Include="Assets\Scripts\ClipboardController.cs" />
      <Compile Include="Assets\Scripts\CollisionAudio.cs" />
      <Compile Include="Assets\Scripts\DepthOfFieldFocus.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GrabMotionTrack.cs" />
      <Compile Include="Assets\Scripts\Look.cs" />
      <Compile Include="Assets\Scripts\Movement.cs" />

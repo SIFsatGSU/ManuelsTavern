@@ -8,16 +8,6 @@ public class CollisionAudio : MonoBehaviour {
     public float maxHitVelocity;
     public string[] collisionObjectTags;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	void OnCollisionEnter(Collision collision) {
         bool tagAccepted = false;
         foreach (string tag in collisionObjectTags) {
@@ -25,9 +15,9 @@ public class CollisionAudio : MonoBehaviour {
         }
         if (!tagAccepted) return;
         float velocity = collision.relativeVelocity.magnitude;
-		print (velocity);
         if (velocity > minHitVelocity) {
             float volume = (velocity - minHitVelocity) / (maxHitVelocity - minHitVelocity);
+			print (volume);
             audioSource.volume = Mathf.Clamp01(volume);
             audioSource.Play();
 		}

@@ -3,23 +3,25 @@ using UnityEngine.VR;
 using System.Collections;
 
 public class Movement : MonoBehaviour {
-    public CharacterController characterController;
-    public GameObject cameraContainer;
+	public GameObject cameraContainer;
     public Camera playerCamera;
     public float speed;
     public float jumpStrength;
     public float normalHeight;
     public float crouchHeight;
 	public float ySpeed = 0;
-    [HideInInspector]
-    public bool oculusControllerMode;
-    private float gravity = 10.3f;
+	private CharacterController characterController;
+	private float gravity = 10.3f;
     private Vector3 originalPosition;
     private Vector2 headPosition;
 
     // Use this for initialization
     void Start () {
+		characterController = GetComponent<CharacterController> ();
 		originalPosition = characterController.transform.position;
+		// Ignore collision with clipboard.
+		Physics.IgnoreCollision (GameObject.FindGameObjectWithTag ("Clipboard").GetComponent<Collider> (),
+			characterController.GetComponent<Collider> ());
     }
 	
 	// Update is called once per frame
@@ -30,7 +32,7 @@ public class Movement : MonoBehaviour {
 		if (characterController.isGrounded) {
 			ySpeed = 0;
 		}
-        if (!oculusControllerMode) {
+		if (!GameManager.oculusControllerMode) {
             if (Input.GetButton("Jump") && characterController.isGrounded) {
                 ySpeed = jumpStrength;
             }
@@ -51,7 +53,7 @@ public class Movement : MonoBehaviour {
         forwardVector[1] = 0;
         forwardVector.Normalize();
         Vector3 rightVector = Vector3.Cross(transform.up, forwardVector);
-        if (!oculusControllerMode) {
+		if (!GameManager.oculusControllerMode) {
             zMovement = forwardVector * Input.GetAxisRaw("Vertical");
             xMovement = rightVector * Input.GetAxisRaw("Horizontal");
         } else { // Specific handler for Oculus Rift controller.
@@ -78,6 +80,12 @@ public class Movement : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Death trigger") {
 			characterController.transform.position = originalPosition;
+		}
+	}
+
+	void OnCollisionEnter(Collision col) {
+		if (col.gameObject.tag == "Clipboard") {
+			print ("AHHHHHHH");
 		}
 	}
 }

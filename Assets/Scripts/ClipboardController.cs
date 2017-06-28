@@ -49,7 +49,6 @@ public class ClipboardController : MonoBehaviour {
 			clipboardShowHideAnimator.GetCurrentAnimatorStateInfo(0).IsName("Show Clipboard") &&
 			clipboardShowHideAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1) {
 			clipboardReflectionRefresh = false;
-			GetComponentInChildren<ReflectionProbe> ().RenderProbe ();
 		}
 
         if (controllerFlippingMode == FLIPPING_MODE_FORWARD) {
@@ -86,7 +85,6 @@ public class ClipboardController : MonoBehaviour {
 	}
 
     public void FinalizeFlipping() {
-        print("lobster");
         if (flippingAlpha < .5) {
             if (controllerFlippingMode == FLIPPING_MODE_FORWARD) {
                 FlipBackward();
