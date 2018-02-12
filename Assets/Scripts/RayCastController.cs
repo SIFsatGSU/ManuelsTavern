@@ -20,9 +20,7 @@ public class RayCastController : MonoBehaviour {
     public float linearInputThreshold;
     public float grippingRadius;
     public GameObject pageGripPoint;
-	public PostProcessingProfile postProcessingProfile;
-    [HideInInspector]
-    public bool oculusControllerMode;
+    public PostProcessingProfile postProcessingProfile;
     [HideInInspector]
     public bool detailViewingMode = false;
     private ClipboardController clipboardController;
@@ -39,9 +37,11 @@ public class RayCastController : MonoBehaviour {
     private GameObject clipboardTopPoint;
     private bool rightHandTrigger = false;
 	private bool leftHandTrigger = false;
+    private VRControllerCheck vrControllerCheck;
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
         pictureFolderMap["Pictures Main Room Left"] = "Main Room North Left";
         leftHandPoint = leftHand.transform.GetChild(0).gameObject;
         rightHandPoint = rightHand.transform.GetChild(0).gameObject;
@@ -51,13 +51,14 @@ public class RayCastController : MonoBehaviour {
         clipboardHoldingPoint = clipboardContainer.transform.GetChild(1).gameObject;
         clipboardBottomPoint = clipboardContainer.transform.GetChild(2).gameObject;
         clipboardTopPoint = clipboardContainer.transform.GetChild(3).gameObject;
+        vrControllerCheck = GetComponent<VRControllerCheck>();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
         // Ray cast
         Ray forwardRay;
-        if (!oculusControllerMode) {
+        if (!vrControllerCheck.vrMode) {
             forwardRay = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
         } else { // Cast ray from right hand if there's a touch controller.
             forwardRay = new Ray(rightHand.transform.position, rightHand.transform.forward);
@@ -88,12 +89,12 @@ public class RayCastController : MonoBehaviour {
             clickSignAlpha = Mathf.Max(clickSignAlpha - clickSignAlphaSpeed, 0);
         }
         Color reticleColor = reticle.GetComponent<Renderer>().material.color;
-		if (!oculusControllerMode) {
+		if (!vrControllerCheck.vrMode) {
 			reticle.GetComponent<Renderer> ().material.color = new Color (reticleColor.r, reticleColor.g, reticleColor.b, clickSignAlpha);
 		}
         clickSign.GetComponent<TextMesh>().color = new Color(1, 1, 1, clickSignAlpha);
 
-        if (!oculusControllerMode) { // Mouse and keyboard (or controller) mode.
+        if (!vrControllerCheck.vrMode) { // Mouse and keyboard (or controller) mode.
             // Start detail viewing mode.
 			if (!detailViewingMode && Input.GetAxisRaw("Use") > 0 && currentFrameInfo != null) {
                 detailViewingMode = true;

@@ -17,7 +17,7 @@ public class CollisionAudio : MonoBehaviour {
         float velocity = collision.relativeVelocity.magnitude;
         if (velocity > minHitVelocity) {
             float volume = (velocity - minHitVelocity) / (maxHitVelocity - minHitVelocity);
-			print (volume);
+			//print (volume);
             audioSource.volume = Mathf.Clamp01(volume);
             audioSource.Play();
 		}

@@ -24,18 +24,17 @@ public class ClipboardController : MonoBehaviour {
     public GameObject pageGripContainer;
     public GameObject page1TailBone;
     public GameObject page2TailBone;
-    [HideInInspector]
-    public bool oculusControllerMode;
+    public VRControllerCheck vrControllerCheck;
     [HideInInspector]
     public int controllerFlippingMode;
     [HideInInspector]
     public float flippingAlpha;
-    private bool clipboardReflectionRefresh;
     private string pageReverseAnimation;
-	// Use this for initialization
-	void Start () {
-		clipboardAnimator.Play ("Page 1 flip reversed", 0, 1);
-        if (!oculusControllerMode) {
+
+    // Use this for initialization
+    void Start () {
+        clipboardAnimator.Play ("Page 1 flip reversed", 0, 1);
+        if (!vrControllerCheck.vrMode) {
             clipboardShowHideAnimator.Play("Hide Clipboard", 0, 1);
         } else {
             clipboardShowHideAnimator.Play("Show Clipboard", 0, 1);
@@ -45,11 +44,11 @@ public class ClipboardController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// Reprobe the reflection for the clipboard's clip.
-		if (clipboardReflectionRefresh &&
+		/*if (clipboardReflectionRefresh &&
 			clipboardShowHideAnimator.GetCurrentAnimatorStateInfo(0).IsName("Show Clipboard") &&
 			clipboardShowHideAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1) {
 			clipboardReflectionRefresh = false;
-		}
+		}*/
 
         if (controllerFlippingMode == FLIPPING_MODE_FORWARD) {
             if (currentViewingPage == 1) {
@@ -101,10 +100,9 @@ public class ClipboardController : MonoBehaviour {
     }
 
 	public void Show() {
-        if (!oculusControllerMode) {
+        if (!vrControllerCheck.vrMode) {
             clipboardShowHideAnimator.Play("Show Clipboard");
             clipboardAnimator.Play("Page 1 flip reversed", 0, 1);
-            clipboardReflectionRefresh = true;
             clipboardContainer.transform.position = clipboardTarget.transform.position;
             if (detailPages.Length > 0) {
                 setPageMaterial(page1, detailPages[0], 1);
@@ -114,7 +112,6 @@ public class ClipboardController : MonoBehaviour {
             bringUpClipboard.Play();
         } else {
             clipboardAnimator.Play("Page 1 flip reversed", 0, 1);
-            clipboardReflectionRefresh = true;
             if (detailPages.Length > 0) {
                 setPageMaterial(page1, detailPages[0], 1);
             } else {
@@ -136,7 +133,7 @@ public class ClipboardController : MonoBehaviour {
     }
 
 	public void Hide() {
-        if (!oculusControllerMode) {
+        if (!vrControllerCheck.vrMode) {
             clipboardShowHideAnimator.Play("Hide Clipboard");
             bringDownClipboard.Play();
         }

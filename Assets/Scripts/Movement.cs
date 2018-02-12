@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.VR;
 using System.Collections;
+using UnityEngine.PostProcessing;
 
 public class Movement : MonoBehaviour {
 	public GameObject cameraContainer;
@@ -14,6 +15,7 @@ public class Movement : MonoBehaviour {
 	private float gravity = 10.3f;
     private Vector3 originalPosition;
     private Vector2 headPosition;
+    private VignetteController vignetteController;
 
     // Use this for initialization
     void Start () {
@@ -22,6 +24,7 @@ public class Movement : MonoBehaviour {
 		// Ignore collision with clipboard.
 		Physics.IgnoreCollision (GameObject.FindGameObjectWithTag ("Clipboard").GetComponent<Collider> (),
 			characterController.GetComponent<Collider> ());
+        vignetteController = GetComponent<VignetteController>();
     }
 	
 	// Update is called once per frame
@@ -61,11 +64,12 @@ public class Movement : MonoBehaviour {
             xMovement = rightVector * OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).x;
         }
         yMovement = transform.up * ySpeed;
-		characterController.Move((yMovement + (zMovement + xMovement).normalized * speed) * Time.deltaTime);
+        Vector3 finalMovement = (yMovement + (zMovement + xMovement).normalized * speed);
+        characterController.Move(finalMovement * Time.deltaTime);
         ySpeed -= gravity * Time.deltaTime;
 
-        if (VRDevice.isPresent) { // Use head movement to move player to always center the camera.
-            Vector3 currentHeadPosition = InputTracking.GetLocalPosition(VRNode.Head);
+        if (UnityEngine.XR.XRDevice.isPresent) { // Use head movement to move player to always center the camera.
+            Vector3 currentHeadPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.Head);
             float deltaZ = currentHeadPosition.z - headPosition.y;
             float deltaX = currentHeadPosition.x - headPosition.x;
 
@@ -74,8 +78,10 @@ public class Movement : MonoBehaviour {
             characterController.Move(transform.forward * deltaZ + transform.right * deltaX);
             headPosition.x = currentHeadPosition.x;
             headPosition.y = currentHeadPosition.z;
+
+            vignetteController.moving = finalMovement.x != 0 || finalMovement.z != 0;
         }
-	}
+    }
 
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Death trigger") {

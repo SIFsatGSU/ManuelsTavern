@@ -11,19 +11,22 @@ public class Look : MonoBehaviour {
     public float yRotationSpeed;
     public float yRotationAngle;
 
-    [HideInInspector]
-    public bool oculusControllerMode;
     private float currentYRotation = 0;
+    private VRControllerCheck vrControllerCheck;
+    private VignetteController vignetteController;
+
     // Use this for initialization
     void Start () {
 		Cursor.visible = false;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        vrControllerCheck = GetComponent<VRControllerCheck>();
+        vignetteController = GetComponent<VignetteController>();
+    }
+
+    // Update is called once per frame
+    void Update () {
 		// Rotate camera.
         float xRotation, yRotation;
-        if (!oculusControllerMode) {
+        if (!vrControllerCheck.vrMode) {
             xRotation = xRotationSpeed * Input.GetAxisRaw("Look X") * Time.deltaTime;
             yRotation = yRotationSpeed * Input.GetAxisRaw("Look Y") * Time.deltaTime;
             xRotation += mouseEnable * xRotationSpeed * Input.GetAxis("Mouse X") * Time.deltaTime;
@@ -38,9 +41,11 @@ public class Look : MonoBehaviour {
 			currentYRotation = Mathf.Clamp(currentYRotation + yRotation, -yRotationAngle / 2, yRotationAngle / 2);
 		}
         transform.Rotate(new Vector3(0, 1, 0), xRotation);
-        if (!VRDevice.isPresent) {
+        if (!UnityEngine.XR.XRDevice.isPresent) {
             // Only rotate Y when not in VR.
             playerCamera.transform.localEulerAngles = new Vector3(-currentYRotation, 0, 0);
+        } else {
+            vignetteController.panning = xRotation != 0;
         }
-	}
+    }
 }

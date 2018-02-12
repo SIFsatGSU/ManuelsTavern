@@ -3,7 +3,7 @@ guid: e823b845a95ec2349adf497c1ed95e32
 timeCreated: 1489978141
 licenseType: Free
 ModelImporter:
-  serializedVersion: 19
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     100002: Mesh2
@@ -123,6 +123,7 @@ ModelImporter:
     100230: Window
     100232: Building_001
     100234: Roof
+    100236: Door_knob_001
     400000: //RootNode
     400002: Mesh2
     400004: Mesh2_001
@@ -241,6 +242,7 @@ ModelImporter:
     400230: Window
     400232: Building_001
     400234: Roof
+    400236: Door_knob_001
     2300000: Mesh2
     2300002: Mesh2_001
     2300004: Mesh2_002
@@ -357,6 +359,7 @@ ModelImporter:
     2300226: Window
     2300228: Building_001
     2300230: Roof
+    2300232: Door_knob_001
     3300000: Mesh2
     3300002: Mesh2_001
     3300004: Mesh2_002
@@ -473,6 +476,7 @@ ModelImporter:
     3300226: Window
     3300228: Building_001
     3300230: Roof
+    3300232: Door_knob_001
     4300000: Mesh2_001
     4300002: Mesh2
     4300004: Mesh2_007
@@ -589,12 +593,145 @@ ModelImporter:
     4300226: Pipe1Top
     4300228: Building_001
     4300230: Roof
+    4300232: Door_knob_001
     7400000: Default Take
     9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ceiling
+    second: {fileID: 2100000, guid: cc0ef99607549f841842f9d1adf5ee78, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ceiling_2
+    second: {fileID: 2100000, guid: b820d55dd32b007449e4b17164a75492, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ceiling_3
+    second: {fileID: 2100000, guid: af35e78b61a740e4596897bd7cacd98d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Floor
+    second: {fileID: 2100000, guid: d54aad3b181297c499777246b6e36b3f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Floor_2
+    second: {fileID: 2100000, guid: 1793dcdccd98e944f88c8f786e54eada, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Floor_3
+    second: {fileID: 2100000, guid: 364f3edc90cb943429182f5a83d9fd79, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gauge_Face
+    second: {fileID: 2100000, guid: 34517c8b2c2a63c44a3b41efde6ef4fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gauge_Metal
+    second: {fileID: 2100000, guid: 4fd7fc2475099e841bcc77ac2e461795, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: ed9a531e032a08148978e25d526c69fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal
+    second: {fileID: 2100000, guid: fc22ca511a97627418ced52e334789c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Nut
+    second: {fileID: 2100000, guid: 94917646f8de7ae4d9a27931eadbc7a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pipe_Metal
+    second: {fileID: 2100000, guid: b0377c907fda7284995e0e230203483b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pipe_Plastic
+    second: {fileID: 2100000, guid: bc282cd0bbe0f944496d151ee94d03c9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pipe_Red
+    second: {fileID: 2100000, guid: 19f0ce1f1096e684b83649b5083561db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pole
+    second: {fileID: 2100000, guid: dfa160d9204c2a847aeb147d6b85f841, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stair_Step
+    second: {fileID: 2100000, guid: c601adc90c49098428862dfa4dba1367, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall_1
+    second: {fileID: 2100000, guid: 1532c0af0dbd55446b7f5942b54b206b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall_2
+    second: {fileID: 2100000, guid: cdb0057ea67dcd148b85b0f87b7bb20c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall_3
+    second: {fileID: 2100000, guid: 4e22bc94756b6044892c353ef051be0f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall_4
+    second: {fileID: 2100000, guid: cb52644f8a7c830409088afbe2c5efaf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall_5
+    second: {fileID: 2100000, guid: 385d2c34ee0707147b6a5cb2ff1e9616, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood
+    second: {fileID: 2100000, guid: a40b965c0f25973489d06cedab72b6dc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood_2
+    second: {fileID: 2100000, guid: ca3156305145d5b43aa282141faf1ed3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood_3
+    second: {fileID: 2100000, guid: 8fa1f80ee506169428ffca8aff90721d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood_4
+    second: {fileID: 2100000, guid: f70132e96bd627848893c5a708f6fbbb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood_5
+    second: {fileID: 2100000, guid: e5f452c409d377a4b99f7a18251e5149, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 0
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -607,12 +744,14 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -620,15 +759,20 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
-    secondaryUVAreaDistortion: 15.000001
+    secondaryUVAreaDistortion: 15
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
@@ -636,6 +780,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:

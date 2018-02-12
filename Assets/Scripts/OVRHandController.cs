@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.VR;
 
 public class OVRHandController : MonoBehaviour {
-    public VRNode hand;
+    public UnityEngine.XR.XRNode hand;
     public float animationSpeed; // Normalized speed.
     public GameObject handModelContainer;
     [HideInInspector]
@@ -23,11 +23,11 @@ public class OVRHandController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 handPosition = InputTracking.GetLocalPosition(hand);
+        Vector3 handPosition = UnityEngine.XR.InputTracking.GetLocalPosition(hand);
         if (handPosition.sqrMagnitude != 0) { // If hands are being tracked, hand position != (0, 0, 0).
-            transform.localPosition = InputTracking.GetLocalPosition(hand);
+            transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(hand);
         }
-        transform.localRotation = InputTracking.GetLocalRotation(hand);
+        transform.localRotation = UnityEngine.XR.InputTracking.GetLocalRotation(hand);
         if (snapHand) {
             handModelContainer.transform.position = transform.position;
             handModelContainer.transform.rotation = transform.rotation;
